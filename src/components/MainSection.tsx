@@ -16,6 +16,10 @@ export default function MainSection() {
     "(min-width:375px)",
     "(max-width:375px)",
   ]);
+  const teste = useBreakpointValue({
+    base: false,
+    sm: true,
+  });
   const data = useMemo(
     () => [
       {
@@ -51,7 +55,7 @@ export default function MainSection() {
         })}
         alt="Banner"
       />
-      {isBiggerThan375 ? (
+      {teste ? (
         <HStack pt={"80px"} maxW={"1160px"} m="0 auto" justify="space-between">
           {data?.map((item, index: number) => {
             return (
@@ -65,7 +69,7 @@ export default function MainSection() {
         </HStack>
       ) : (
         <Flex
-          flexWrap={"wrap"}
+          flexWrap="wrap"
           pt={"80px"}
           maxW={"275px"}
           m="0 auto"
@@ -101,6 +105,7 @@ export default function MainSection() {
           textAlign="center"
           color="#47585B"
           whiteSpace={"break-spaces"}
+          mb="20px"
         >
           {`Vamos nessa?
 Então escolha seu continente`}

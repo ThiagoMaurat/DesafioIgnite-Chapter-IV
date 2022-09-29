@@ -10,9 +10,15 @@ import {
   useBreakpoint,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import React, { useCallback, useMemo, useState } from "react";
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore, {
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+} from "swiper";
+import "../swipper/swipper.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -55,8 +61,9 @@ export default function Choices() {
         <ChakraSwiper
           spaceBetween={50}
           slidesPerView={1}
-          pagination={true}
-          modules={[Autoplay]}
+          modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+          navigation
+          pagination={{ clickable: true }}
           className="mySwiper"
           justifyContent={"center"}
           onAfterInit={(s) =>
@@ -92,11 +99,13 @@ export default function Choices() {
           w="100%"
           gap={"4px"}
           justifyContent={"center"}
+          alignItems={"flex-end"}
           position={"absolute"}
           zIndex={99999}
           className="custom-swiper-pagination"
           pl={{ base: 0, md: 4 }}
-          bottom={useBreakpointValue({ base: "0", md: "unset" })}
+          bottom={useBreakpointValue({ base: "0", md: "0" })}
+          mb="10px"
         >
           {content.map((image, index) => {
             const isActive = manager.activeIndex === index;
@@ -106,7 +115,7 @@ export default function Choices() {
                 key={index}
                 cursor="pointer"
                 onClick={() => handleChangeSlide(index)}
-                bgColor={isActive ? "green" : "blackAlpha.900"}
+                bgColor={isActive ? "#FFBA08" : "blackAlpha.900"}
                 opacity={isActive ? 1 : 0.5}
               />
             );
