@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       <HStack w="100%" h="100px" justifyContent={"center"}>
-        <Image src="./Logo.png" alt="Logo" />
+        <Image src="/Logo.png" alt="Logo" />
       </HStack>
     </>
   );
