@@ -20,11 +20,9 @@ interface ContinentsProps {
 }
 
 export default function Continents(data: ContinentsProps) {
-  console.log(data);
-
   return (
     <>
-      <Header />
+      <Header isDinamicPage={true} />
       <Flex>
         <Image
           alt="background-image"
@@ -41,7 +39,20 @@ export default function Continents(data: ContinentsProps) {
         languageNumber={data.findObjectData.info.language}
         cityNumber={data.findObjectData.info.cities}
       />
-      <Box maxW={"1160px"}>
+      <Box maxW={"1160px"} m="0 auto" pt="80px">
+        <Text
+          fontFamily="Poppins"
+          fontStyle="normal"
+          fontWeight="500"
+          fontSize="36px"
+          lineHeight="54px"
+          textAlign="left"
+          color="#47585B"
+          mb="40px"
+          px={{ base: "16px", xl: "0" }}
+        >
+          Cidades +100
+        </Text>
         <GridCities>
           {data.findObjectData.cities.map((item, index) => {
             return (

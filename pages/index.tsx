@@ -6,7 +6,7 @@ import Choices from "../src/components/swipper/Swipper";
 const Home: NextPage = () => {
   return (
     <>
-      <Header />
+      <Header isDinamicPage={false} />
       <MainSection />
       <Choices />
     </>

@@ -20,6 +20,7 @@ import "../swipper/swipper.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useRouter } from "next/router";
 
 const ChakraSwiper = chakra(Swiper);
 
@@ -43,6 +44,7 @@ export default function Choices() {
     [manager]
   );
 
+  const { push } = useRouter();
   const content = useMemo(() => {
     return [
       {
@@ -88,6 +90,12 @@ export default function Choices() {
                   src={image.src}
                   alt="Main Image"
                   objectFit="cover"
+                  cursor={"pointer"}
+                  onClick={() =>
+                    index === 0
+                      ? push("/continent/Europa")
+                      : push("/continent/US")
+                  }
                 />
               </SwiperSlide>
             );

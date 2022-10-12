@@ -1,6 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { data } from "../data/CountriesInfo";
 
 interface TextContinentSectionProps {
   leftText: string;
@@ -15,10 +14,11 @@ export default function TextContinentSection(props: TextContinentSectionProps) {
   return (
     <Flex
       maxW={"1160px"}
+      px={{ base: "16px", xl: "0" }}
       w="100%"
       m="0 auto"
       mt="80px"
-      p={{ base: "1rem", md: "" }}
+      /* p={{ base: "1rem", md: "" }} */
       flexDir={{ base: "column", md: "row" }}
       gap="70px"
     >

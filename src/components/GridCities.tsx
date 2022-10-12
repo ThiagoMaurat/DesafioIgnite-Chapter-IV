@@ -7,8 +7,19 @@ interface GridCities {
 
 export default function GridCities({ children }: GridCities) {
   return (
-    <Box mt="80px">
-      <Grid templateColumns={"repeat(5, 1fr)"} gridGap="45px">
+    <Box>
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          sm: "repeat(2, 1fr)",
+          md: "repeat(3, 1fr)",
+          xl: "repeat(4, 1fr)",
+        }}
+        mb="35px"
+        gridGap="45px"
+        px={{ base: "16px", xl: "0" }}
+        justifyContent={"center"}
+      >
         {children}
       </Grid>
     </Box>
